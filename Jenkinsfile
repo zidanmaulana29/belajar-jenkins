@@ -1,13 +1,14 @@
 pipeline {
-    agent {
-      node {
-        label"linux && java17"
-      }
-    }    
+    agent any
     stages {
-        stage('hello') {
+        stage('Checkout') {
             steps {
-                echo("hello pipeline")
+                git 'https://github.com/user/repo.git'
+            }
+        }
+        stage('Run') {
+            steps {
+                sh './agent.sh'
             }
         }
     }
