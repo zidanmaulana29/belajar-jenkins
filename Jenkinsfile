@@ -1,10 +1,11 @@
 pipeline {
-    agent any
+    agent { label 'linux java17' }
 
     stages {
-        stage('Hello') {
+        stage('Test') {
             steps {
-                echo 'Hello Jenkins Pipeline!'
+                sh 'whoami'
+                sh 'pwd'
             }
         }
     }
