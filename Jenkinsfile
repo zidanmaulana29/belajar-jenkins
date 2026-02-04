@@ -1,14 +1,13 @@
 pipeline {
-    agent any
+    agent { label 'linux java17' }
+
     stages {
-        stage('Checkout') {
+        stage('menjalankan script pada jenkins agent') {
             steps {
-                git 'https://github.com/user/repo.git'
-            }
-        }
-        stage('Run') {
-            steps {
-                sh './agent.sh'
+                sh '''
+                  cd /home/idanzi/jenkins/praktik
+                  ./agent.sh
+                '''
             }
         }
     }
